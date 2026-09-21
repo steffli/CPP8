@@ -10,15 +10,7 @@ class NotFound : public std::exception{
 };
 
 template <typename T>
-T easyfind(T conainer, unsigned int occ){
-    for (unsigned int i; i < container.size(); i++)
-    {
-        if (container[i] == occ)
-            return occ;
-        else 
-            return -1;
-    }
-}
+typename T::iterator easyfind(T &container, int occ);
 
 #include "easyfind.tpp"
 #endif
