@@ -13,7 +13,15 @@ class Span{
         Span();
         Span(unsigned int N);
         Span(const Span &copy);
+        Span &operator=(const Span &copy);
         ~Span();
+
+        void addNumber(int n);
+
+        class OutofBounds : public std::exception{
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif
