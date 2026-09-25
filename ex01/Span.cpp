@@ -23,18 +23,18 @@ void Span::addNumber(int n){
 }
 
 int Span::shortestSpan(){
-    if (N <= 1)
+    if (vec.size() <= 1)
         throw NotEnoughNumbers();
-    int min = abs(vec[1] - vec[0]);
-    for (int i = 2; i < vec.size(); ++i)
-        for (int j = i + 1; j < vec.size(); ++j)
-            min = std::min(min, vec[j] - vec[i]);
+    int min = std::abs(vec[1] - vec[0]);
+    for (size_t i = 0; i < vec.size(); ++i)
+        for (size_t j = i + 1; j < vec.size(); ++j)
+            min = std::min(min, std::abs(vec[j] - vec[i]));
     return min;
 }
 int Span::longestSpan(){
-    if (N <= 1)
+    if (vec.size() <= 1)
         throw NotEnoughNumbers();
-    return (*std::max_element(vec.begin(), vec.end()) - *std::max_element(vec.begin(), vec.end()));
+    return (*std::max_element(vec.begin(), vec.end()) - *std::min_element(vec.begin(), vec.end()));
 }
 
 const char* Span::NotEnoughNumbers::what() const throw(){
