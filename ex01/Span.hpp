@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <algorithm>
+#include <cstdlib>
 
 class Span{
     private:
@@ -17,8 +19,14 @@ class Span{
         ~Span();
 
         void addNumber(int n);
+        int shortestSpan();
+        int longestSpan();
 
         class OutofBounds : public std::exception{
+            public:
+                virtual const char* what() const throw();
+        };
+        class NotEnoughNumbers : public std::exception{
             public:
                 virtual const char* what() const throw();
         };
