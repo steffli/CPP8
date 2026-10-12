@@ -1,6 +1,6 @@
 NAME = mutant
 
-SRC =  main.cpp mutantstack.cpp
+SRC =  main.cpp
 
 CPP = c++
 
